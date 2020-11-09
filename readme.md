@@ -231,3 +231,5 @@ h := cache.NewCache(scene, expire,
     matryoshka.WithRedisTtlFactor(30)
 )
 ```
+
+MIT licence.

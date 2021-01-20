@@ -361,7 +361,7 @@ func (c *CacheHandler) batchGetFromCache(ctx context.Context, cachePre string, k
 			}
 			valMap[key] = val
 			for pi := i - 1; pi >= 0; pi-- {
-				c.cacheList[pi].setFromCache(ctx, cacheKey, val, item.getCacheTtl(c.ttl, c.redisTtlFactor))
+				c.cacheList[pi].setFromCache(ctx, cacheKey, val, c.cacheList[pi].getCacheTtl(c.ttl, c.redisTtlFactor))
 			}
 		}
 		item.addQpsHit(lck - len(tmpNoCachedMap.cacheKeys))

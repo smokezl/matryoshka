@@ -314,7 +314,7 @@ func (d *defaultPubSub) Subscribe(key string, receiver func(message string, err 
 func (d *defaultPubSub) Publish(key string, val string) (err error) {
 	for i := 0; i < d.c.MaxRetry; i++ {
 		err = redisDo(d.pool, func(conn redis.Conn) error {
-			_, err := redis.Int(conn.Do("PUBLISH", d.key, key))
+			_, err := redis.Int(conn.Do("PUBLISH", key, val))
 			return err
 		})
 		if err == nil {

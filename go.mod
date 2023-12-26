@@ -1,4 +1,4 @@
-module matryoshka
+module github.com/smokezl/matryoshka
 
 go 1.13
 
